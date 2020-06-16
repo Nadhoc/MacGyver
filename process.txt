@@ -1,0 +1,8 @@
+- Réécrire la régle du jeu. 
+- transcrire le scénario Si et Alors/ Si et seulement.
+- Lister les objets que compose le jeu
+- travaille sur Python 3.8
+- Pycharm
+- Dossier 
+
+- 
