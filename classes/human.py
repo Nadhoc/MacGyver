@@ -9,11 +9,11 @@ class Human:
         #++Picture go right++##
         self.right = pygame.image.load('ressource/MacGyver.png')
         #++Picture go left++##
-        self.left = pygame.image.load('MacGyverleft.png')
+        self.left = pygame.image.load('ressource/MacGyverleft.png')
         #++Picture go Down++##
-        self.down = pygame.image.load('MacGyverDown.png')
+        self.down = pygame.image.load('ressource/MacGyverDown.png')
         ##++Picture go Up++##
-        self.up = pygame.image.load('MacGyverup.png')
+        self.up = pygame.image.load('ressource/MacGyverup.png')
         #++Position in pixe++#
         self.x = 0
         self.y = 0

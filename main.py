@@ -6,13 +6,12 @@ import pygame
 import random
 import time
 from pygame.locals import *
-from Constant import *
+from constant import *
 from classes.human import Human
-from classes.Item import Item
-from classes.Labyrinthe import Labyrinthe
+from classes.item import Item
+from classes.labyrinthe import Labyrinthe
 
 pygame.init()
-
 
 # generate windows game
 # configure windows size

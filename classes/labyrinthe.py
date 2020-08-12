@@ -1,6 +1,6 @@
 # -*-coding:utf-8 -
 import pygame
-from Constant import *
+from constant import *
 class Labyrinthe:
     ##+++class object labyrinthe/ It has one attribut : an empty grid.
     ##+++ and takes as parameter the file.txt which contains the map ++##
