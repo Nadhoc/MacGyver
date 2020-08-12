@@ -125,7 +125,7 @@ while  GAME_LOOP:
     labyrinthe.display(screen)
 
     #Add MacGyver in the Labyrinth with his position
-    screen.blit(MacGyver, (MacGyver.x + 30, MacGyver.y + 30)) # + 30 for the offset of the black outline
+    screen.blit(MacGyver, (MacGyver.x, MacGyver.y)) # + 30 for the offset of the black outline
 
      #Add conditionnal display of Element
 
