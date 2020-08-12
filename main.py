@@ -19,14 +19,15 @@ pygame.init()
 pygame.display.set_icon(ICONE)
 pygame.display.set_caption("TITLE-screen")
 screen = pygame.display.set_mode((720, 580))
-
+#Loading screen welcome
+screen.blit(BLACK_GROUND, (0, 0))
+screen.blit(WELCOME, (30, 30))
 #+++++++++++The Main Loop+++++++##
 MAIN_LOOP = True
 while MAIN_LOOP:
 
-    #Loading screen welcome
-    screen.blit(BLACK_GROUND, (0, 0))
-    screen.blit(WELCOME, (30, 30))
+
+
     #refresh the screen
     pygame.display.flip()
 
@@ -50,8 +51,7 @@ while MAIN_LOOP:
 
                 #######WELCOME TO THE GAME##########
                 ###SOUNDTRACK.stop()
-                screen.blit(BACKGROUND, (30, 30))
-                screen.blit(WELCOME, (120, 150))
+                screen.blit(BACKGROUND, (0, 0))
                 pygame.display.flip()
                 time.sleep(1)
 

@@ -24,8 +24,6 @@ class Human:
         self.direction = self.right
         #++Labyrinth++##
         self.labyrinthe = labyrinthe
-       
-
         
     def move(self, direction):
         ##+++Method whitch allows to move the character++## 
