@@ -62,6 +62,7 @@ while MAIN_LOOP:
                 #Load the game's map
                 FILE = "ressource/lab.txt"
 
+
     if FILE != "": #We make sure that the file really exists and is not empty
 
         #load the background
@@ -78,7 +79,7 @@ while MAIN_LOOP:
         SERINGUE.locate_item()
         SERINGUE.pin_items()
 
-        ETHER = Item("ether", ETHER, Labyrinthe)
+        ETHER = Item("ether", ETHER, labyrinthe)
         ETHER.locate_item()
         ETHER.pin_items()
 
@@ -87,7 +88,7 @@ while MAIN_LOOP:
         TUBE.pin_items()
 
         # go to create MacGyver
-        MacGyver = Human()
+        MacGyver = Human(labyrinthe)
 
 #++++++++GAME_LOOP++++++++++++++++++#
     #Initialyse at every game_loop an empty list to put the elements inside

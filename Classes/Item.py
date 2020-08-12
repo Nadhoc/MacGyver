@@ -1,10 +1,11 @@
 # -*-coding:utf-8 -
 import pygame
 import random
+from .constant import *
 #create class object
 #attibut name
 class Item:
-    def __init__(self,name, SURFACE,Labyrinthe):
+    def __init__(self,name, SURFACE, Labyrinthe):
         # attribute position pixel
         self.x = 0
         self.y = 0
@@ -24,17 +25,26 @@ class Item:
         position = []
         coordinates = ()
         num_line = 0
-        print(len(self.labyrinthe.grid))
-        print(len(self.labyrinthe.grid[0]))
-        while num_line < len(self.labyrinthe.grid)-1:
-            num_cell = 0 # We remove the first cell - the cell of departure
-            while num_cell < len(self.labyrinthe.grid[0]): #By default, the lenght of the first line
-                print(self.labyrinthe.grid[num_line][num_cell])
+
+
+        for num_line in range(15):
+            print()
+            for num_cell in range(15):
+                print(self.labyrinthe.grid[num_line][num_cell], end="")
                 if self.labyrinthe.grid[num_line][num_cell] == "0":
                     coordinates = (num_line, num_cell)
                     position.append(coordinates)
-                num_cell += 1
-            num_line += 1       
+
+
+        # while num_line < len(self.labyrinthe.grid)-1:
+        #         num_cell = 0 # We remove the first cell - the cell of departure
+        #         while num_cell < len(self.labyrinthe.grid[0]): #By default, the lenght of the first line
+        #             print(self.labyrinthe.grid[num_line][num_cell])
+        #             if self.labyrinthe.grid[num_line][num_cell] == "0":
+        #                 coordinates = (num_line, num_cell)
+        #                 position.append(coordinates)
+        #             num_cell += 1
+        #         num_line += 1
 
         items_coordinates = random.choice(position)
         self.sprite_y = items_coordinates[0]
@@ -42,7 +52,7 @@ class Item:
         self.x = self.sprite_x * SPRITE_SIZE
         self.y = self.sprite_y * SPRITE_SIZE
 
-    def pin_item(self):
+    def pin_items(self):
         #+++++Pin the name of the items to be kept by MacGyver+++#
         self.labyrinthe.grid[self.sprite_y][self.sprite_x] = self.name
     

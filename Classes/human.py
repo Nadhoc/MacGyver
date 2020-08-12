@@ -3,7 +3,7 @@ import pygame
 #CREATE human class and sprite graphic coponent
 class Human:
     
-    def __init__(self, up, down, left,right, labyrinthe):
+    def __init__(self, labyrinthe):
         print("création d'un humain")   
         self.image = pygame.image.load('ressource/MacGyver.png')
         #++Picture go right++##
