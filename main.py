@@ -73,95 +73,97 @@ while MAIN_LOOP:
 
         #Get the items in the labyrinthe
 
-        SERINGUE = Item("seringue", SERINGUE, labyrinthe)
-        SERINGUE.locate_item()
-        SERINGUE.pin_items()
+        seringue = Item("seringue", SERINGUE, labyrinthe)
+        seringue.locate_item()
+        seringue.pin_items()
 
-        ETHER = Item("ether", ETHER, labyrinthe)
-        ETHER.locate_item()
+        ether = Item("ether", ETHER, labyrinthe)
+        ether.locate_item()
+        ether.pin_items()
 
-        TUBE = Item("tube", TUBE, labyrinthe)
-        TUBE.locate_item()
-        TUBE.pin_items()
+        tube = Item("tube", TUBE, labyrinthe)
+        tube.locate_item()
+        tube.pin_items()
 
         #Add arrived icon
         ARRIVED = pygame.image.load("ressource/arrived.JPG").convert_alpha()
         screen.blit(ARRIVED, (390,420))
        #Add MacGyver in the Labyrinth with his position
+
         MacGyver = pygame.image.load(PATH + "MacGyver.png").convert_alpha()
         move_MacGyver = MacGyver.get_rect()
         screen.blit(MacGyver, (0,0))# + 30 for the offset of the black outline
         
 #++++++++GAME_LOOP++++++++++++++++++#
     #Initialyse at every game_loop an empty list to put the elements inside
-TOOLS = []
-while  GAME_LOOP:
-    pygame.time.Clock().tick(30)
-    for event in pygame.event.get():
-         
-        #Quit the program
-        if event.type == QUIT:
-            print("See you next time !")
-            MAIN_LOOP = False
-            GAME_LOOP = False 
-
-        elif event.type == KEYDOWN:
+    TOOLS = []
+    while  GAME_LOOP:
+        pygame.time.Clock().tick(30)
+        for event in pygame.event.get():
             
-            #Quit the game and go back Home
-            if event.key == K_ESCAPE:
-                    GAME_LOOP = False
+            #Quit the program
+            if event.type == QUIT:
+                print("See you next time !")
+                MAIN_LOOP = False
+                GAME_LOOP = False 
 
-            #create event to move player
-            elif event.key == K_RIGHT:
-                    Macgyverright.move("right")
+            elif event.type == KEYDOWN:
+                
+                #Quit the game and go back Home
+                if event.key == K_ESCAPE:
+                        GAME_LOOP = False
 
-            elif event.key == K_LEFT:
-                   Macgyverleft.move("left")
-            
-            elif event.key == K_UP:
-                    Macgyverup.move("up")  
+                #create event to move player
+                elif event.key == K_RIGHT:
+                        Macgyverright.move("right")
 
-            elif event.key == K_DOWN:
-                    Macgyverdown.move("down")   
+                elif event.key == K_LEFT:
+                    Macgyverleft.move("left")
+                
+                elif event.key == K_UP:
+                        Macgyverup.move("up")  
+
+                elif event.key == K_DOWN:
+                        Macgyverdown.move("down")   
 
 
-    #Display the game board
-    screen.blit(BACKGROUND, (0, 0))
-    screen.blit(MacGyver, move_MacGyver)
-    labyrinthe.display(screen)
+        #Display the game board
+        screen.blit(BACKGROUND, (0, 0))
+        screen.blit(MacGyver, move_MacGyver)
+        labyrinthe.display(screen)
 
-      
-    pygame.display.flip() 
+        
+        pygame.display.flip() 
 
-     #Add conditionnal display of Element
+        #Add conditionnal display of Element
 
-    tube.display_item(screen, MacGyver, TOOLS)
-    seringue.display_item(screen, MacGyver, TOOLS)
-    ether.display_item(screen, MacGyver, TOOLS)
+        tube.display_item(screen, MacGyver, TOOLS)
+        seringue.display_item(screen, MacGyver, TOOLS)
+        ether.display_item(screen, MacGyver, TOOLS)
 
-    
+        
 
-    if labyrinthe.grid[MacGyver.sprite_x][MacGyver.sprite_y] == "a":
+        if labyrinthe.grid[MacGyver.sprite_x][MacGyver.sprite_y] == "a":
 
-        #The player wins if he collects the tree items
-        if len(TOOLS) < 3:
+            #The player wins if he collects the tree items
+            if len(TOOLS) < 3:
 
-            #+++++DISPLAY GAME OVER++++#
-            screen.blit(GAMEOVER, (150+30, 150+30))
-            pygame.display.flip()
-            time.sleep(2)
-            #+++++++++++++++++++++++++++++#
-            print("You loose")
-            GAME_LOOP = False
-            #+++++++++++++++++++++++++++++#
-        if len(TOOLS) == 3:
-            #+++++DISPLAY YOU WIN+++++++++#        
-            screen.blit(WIN, (100+30, 150+30))
-            pygame.display.flip()
-            time.sleep(2)
-            #+++++++++++++++++++++++++++++#                
-            print("You win!")
-            GAME_LOOP = False
+                #+++++DISPLAY GAME OVER++++#
+                screen.blit(GAMEOVER, (150+30, 150+30))
+                pygame.display.flip()
+                time.sleep(2)
+                #+++++++++++++++++++++++++++++#
+                print("You loose")
+                GAME_LOOP = False
+                #+++++++++++++++++++++++++++++#
+            if len(TOOLS) == 3:
+                #+++++DISPLAY YOU WIN+++++++++#        
+                screen.blit(WIN, (100+30, 150+30))
+                pygame.display.flip()
+                time.sleep(2)
+                #+++++++++++++++++++++++++++++#                
+                print("You win!")
+                GAME_LOOP = False
 
 
 
