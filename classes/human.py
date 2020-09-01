@@ -1,19 +1,20 @@
 # -*-coding:utf-8 -
 import pygame
+from .constant import *
 #CREATE human class and sprite graphic coponent
 class Human:
     
     def __init__(self, labyrinthe):
         print("création d'un humain")   
-        self.image = pygame.image.load('ressource/MacGyver.png')
+        self.image = pygame.image.load('ressource/MacGyver.png').convert_alpha()
         #++Picture go right++##
-        self.right = pygame.image.load('ressource/MacGyver.png')
+        self.right = pygame.image.load('ressource/MacGyverright.png').convert_alpha()
         #++Picture go left++##
-        self.left = pygame.image.load('ressource/MacGyverleft.png')
+        self.left = pygame.image.load('ressource/MacGyverleft.png').convert_alpha()
         #++Picture go Down++##
-        self.down = pygame.image.load('ressource/MacGyverDown.png')
+        self.down = pygame.image.load('ressource/MacGyverDown.png').convert_alpha()
         ##++Picture go Up++##
-        self.up = pygame.image.load('ressource/MacGyverup.png')
+        self.up = pygame.image.load('ressource/MacGyverup.png').convert_alpha()
         #++Position in pixe++#
         self.x = 0
         self.y = 0
