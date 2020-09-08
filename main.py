@@ -16,7 +16,7 @@ def main():
     # configure windows size
     # Title Game and Icone
     pygame.display.set_icon(ICONE)
-    pygame.display.set_caption("Nadir, Save MacGyver !!")
+    pygame.display.set_caption("Nadir, Save mac_gyver !!")
     screen = pygame.display.set_mode((450, 450))
 
     #Loading screen welcome
@@ -73,6 +73,8 @@ def main():
             labyrinthe.generate()
             labyrinthe.display(screen)
 
+            # Pour le moment on met les items de côté.
+            """
             #Get the items in the labyrinthe
 
             seringue = Item("seringue", SERINGUE, labyrinthe)
@@ -86,15 +88,13 @@ def main():
             tube = Item("tube", TUBE, labyrinthe)
             tube.locate_item()
             tube.pin_items()
-
+            """
             #Add arrived icon
             ARRIVED = pygame.image.load("ressource/arrived.JPG").convert_alpha()
-            screen.blit(ARRIVED, (390,420))
-           #Add MacGyver in the Labyrinth with his position
-            MacGyver = Human(labyrinthe)
-            MacGyver = pygame.image.load(PATH + "MacGyver.png").convert_alpha()
-            move_MacGyver = MacGyver.get_rect()
-            screen.blit(MacGyver, (0,0))# + 30 for the offset of the black outline
+            screen.blit(ARRIVED, (390, 420))
+           #Add mac_gyver in the Labyrinth with his position
+            mac_gyver = Human(labyrinthe)
+            screen.blit(MACGYVER_IMAGE, (0, 0))
 
         #++++++++GAME_LOOP++++++++++++++++++#
         #Initialyse at every game_loop an empty list to put the elements inside
@@ -108,44 +108,35 @@ def main():
                     print("See you next time !")
                     MAIN_LOOP = False
                     GAME_LOOP = False
-
                 elif event.type == KEYDOWN:
-
                     #Quit the game and go back Home
                     if event.key == K_ESCAPE:
                             GAME_LOOP = False
-
                     #create event to move player
                     elif event.key == K_RIGHT:
-                            Macgyverright.move("right")
-
+                        mac_gyver.move("right")
                     elif event.key == K_LEFT:
-                        Macgyverleft.move("left")
-
+                        mac_gyver.move("left")
                     elif event.key == K_UP:
-                            Macgyverup.move("up")
-
+                        mac_gyver.move("up")
                     elif event.key == K_DOWN:
-                            Macgyverdown.move("down")
-
+                        mac_gyver.move("down")
 
             #Display the game board
             screen.blit(BACKGROUND, (0, 0))
-            screen.blit(MacGyver, move_MacGyver)
             labyrinthe.display(screen)
-
-
+            screen.blit(MACGYVER_IMAGE, (mac_gyver.x, mac_gyver.y))
             pygame.display.flip()
 
             #Add conditionnal display of Element
 
-            #tube.display_item(screen, MacGyver, TOOLS)
-            #seringue.display_item(screen, MacGyver, TOOLS)
-            #ether.display_item(screen, MacGyver, TOOLS)
+            #tube.display_item(screen, mac_gyver, TOOLS)
+            #seringue.display_item(screen, mac_gyver, TOOLS)
+            #ether.display_item(screen, mac_gyver, TOOLS)
 
 
 
-            if labyrinthe.grid[MacGyver.sprite_x][MacGyver.sprite_y] == "a":
+            if labyrinthe.grid[mac_gyver.sprite_x][mac_gyver.sprite_y] == "a":
 
                 #The player wins if he collects the tree items
                 if len(TOOLS) < 3:
