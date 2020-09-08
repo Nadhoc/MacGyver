@@ -9,8 +9,6 @@ from classes.item import Item
 from classes.labyrinthe import Labyrinthe
 
 
-
-
 def main():
     pygame.init()
 
