@@ -1,7 +1,7 @@
 # -*-coding:utf-8 -
 import pygame
 import random
-from .constant import *
+from config.constant import *
 #create class object
 #attibut name
 class Item:

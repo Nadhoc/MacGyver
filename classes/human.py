@@ -1,75 +1,65 @@
 # -*-coding:utf-8 -
 import pygame
-from .constant import *
-#CREATE human class and sprite graphic coponent
+from config.constant import *
+
 class Human:
-    
+    """ classe pour blabla"""
+
     def __init__(self, labyrinthe):
-        print("création d'un humain")   
-        self.image = pygame.image.load('ressource/MacGyver.png').convert_alpha()
-        #++Picture go right++##
-        self.right = pygame.image.load('ressource/MacGyverright.png').convert_alpha()
-        #++Picture go left++##
-        self.left = pygame.image.load('ressource/MacGyverleft.png').convert_alpha()
-        #++Picture go Down++##
-        self.down = pygame.image.load('ressource/MacGyverDown.png').convert_alpha()
-        ##++Picture go Up++##
-        self.up = pygame.image.load('ressource/MacGyverup.png').convert_alpha()
+
+        self.image = MACGYVER_IMAGE
         #++Position in pixe++#
         self.x = 0
         self.y = 0
         #Position in square+++#
         self.sprite_x = 0
         self.sprite_y = 0
-        #++default direction++#
-        self.direction = self.right
-        #++Labyrinth++##
         self.labyrinthe = labyrinthe
+        self.inventory = 0
         
     def move(self, direction):
-        ##+++Method whitch allows to move the character++## 
-        ##+++This method takes in parmeter++## 
-        ##+++the direction where Mac Gyver must go (letf, Right, Up and down)++##
-
+        """
+        +++Method whitch allows to move the character++##
+        +++This method takes in parmeter++##
+        +++the direction where Mac Gyver must go (letf, Right, Up and down)++
+        """
         #++In order to Move to the right
+        print(self.x, self.y)
+        print(self.sprite_x, self.sprite_y)
+        print(self.sprite_x, self.sprite_y+1)
+        print(self.labyrinthe.grid[self.sprite_y + 1][self.sprite_x])
         if direction == "right":
             if self.sprite_x < NB_SPRITE -1: #++In order to avoid go out of the screen++#
-                if self.labyrinthe.grid[self.sprite_y][self.sprite_x+1] != "0": #++Don't go to a wall++#
+                if self.labyrinthe.grid[self.sprite_y][self.sprite_x+1] == "0": #++Don't go to a wall++#
                     #++to move of a sprite
                     self.sprite_x += 1
                     #++the Position in pixel:
-                    self.x = self.sprite_x * SPRITE_SIZE 
-            self.direction = self.right
-
+                    self.x = self.sprite_x * SPRITE_SIZE
         #++In order to Move to the Left
         if direction == "left":
             if self.sprite_x > 0: #++Inorder to avoid go out of the screen
-                if self.labyrinthe.grid[self.sprite_y][self.sprite_x-1] != "0": #++Don't go to a wall++#
+                if self.labyrinthe.grid[self.sprite_y][self.sprite_x-1] == "0": #++Don't go to a wall++#
                     #++ to move of one sprite
                     self.sprite_x -= 1
                     #++The Position in pixel:
-                    self.x = self.sprite_x * SPRITE_SIZE    
-            self.direction = self.left       
-
+                    self.x = self.sprite_x * SPRITE_SIZE
         #++ In order to Move to the Down
         if direction == "down":
+
             if self.sprite_y < NB_SPRITE-1: #++In order to avoid go out of the screen++##
-                if self.labyrinthe.grid[self.sprite_y+1][self.sprite_x] != "0": #Don't go to a wall++#
+                print("bas0")
+                if self.labyrinthe.grid[self.sprite_y+1][self.sprite_x] == "0": #Don't go to a wall++#
+                    print("bas")
                     #++ tomove on one sprite
                     self.sprite_y += 1
                     #++ The Position in pixel:
                     self.y = self.sprite_y * SPRITE_SIZE
-            self.direction = self.down
-            
-       
+
         #++ In order to Move Up
         if direction == "up":
             if self.sprite_y > 0: #++In order to avoid go out of the screen++##
-                if self.labyrinthe.grid[self.sprite_y-1][self.sprite_x] != "0": #Don't go to a wall++##
+                if self.labyrinthe.grid[self.sprite_y-1][self.sprite_x] == "0": #Don't go to a wall++##
                     #++ to move on one sprite++##
                     self.sprite_y -= 1
                     #++ The Position in pixel:
                     self.y = self.sprite_y * SPRITE_SIZE
-            self.direction = self.up
-
-

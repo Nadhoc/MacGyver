@@ -46,19 +46,7 @@ ETHER = pygame.image.load("ressource/ether.png").convert_alpha()
 SERINGUE = pygame.image.load("ressource/seringue.png").convert_alpha()
 
 #Display MacGyver
-MacGyver = pygame.image.load(PATH + "MacGyver.png").convert_alpha()
-#Screen MacGyver Left direction
-Macgyverleft = pygame.image.load("ressource/MacGyverleft.png").convert_alpha()
-
-#Screen MacGyver right direction 
-Macgyverright = pygame.image.load("ressource/MacGyver.png").convert_alpha()
-
-#screen MacGyver Down direction
-Macgyverdown = pygame.image.load("ressource/MacGyverDown.png").convert_alpha()
-
-#screen MacGyver Up direction
-Macgyverup = pygame.image.load("ressource/MacGyverup.png").convert_alpha()
-
+MACGYVER_IMAGE = pygame.image.load(PATH + "MacGyver.png").convert_alpha()
 
 #variable contain map
 FILE = ""
