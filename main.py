@@ -7,7 +7,7 @@ from config.constant import *
 from classes.human import Human
 from classes.item import Item
 from classes.labyrinthe import Labyrinthe
-
+from classes.item import Item
 
 def main():
     pygame.init()
@@ -74,21 +74,18 @@ def main():
             labyrinthe.display(screen)
 
             # Pour le moment on met les items de côté.
-            """
             #Get the items in the labyrinthe
 
             seringue = Item("seringue", SERINGUE, labyrinthe)
             seringue.locate_item()
             seringue.pin_items()
-
             ether = Item("ether", ETHER, labyrinthe)
             ether.locate_item()
             ether.pin_items()
-
             tube = Item("tube", TUBE, labyrinthe)
             tube.locate_item()
             tube.pin_items()
-            """
+
             #Add arrived icon
             ARRIVED = pygame.image.load("ressource/arrived.JPG").convert_alpha()
             screen.blit(ARRIVED, (390, 420))
