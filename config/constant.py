@@ -41,7 +41,8 @@ WALL = pygame.image.load("ressource/floor.JPG")
 ARRIVAL = pygame.image.load("ressource/Gardien.png").convert_alpha()
 
 #kind of tools
-TUBE = pygame.image.load("ressource/tube_plastique.png").convert_alpha()
+tube = pygame.image.load("ressource/tube_plastique.png").convert_alpha()
+TUBE = pygame.transform.scale(tube, (30, 30)) 
 ETHER = pygame.image.load("ressource/ether.png").convert_alpha()
 SERINGUE = pygame.image.load("ressource/seringue.png").convert_alpha()
 
