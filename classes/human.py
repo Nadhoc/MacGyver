@@ -16,6 +16,7 @@ class Human:
         self.sprite_y = 0
         self.labyrinthe = labyrinthe
         self.inventory = 0
+        self.objets_noms = ["seringue", "ether", "tube"]
         
     def move(self, direction):
         """
