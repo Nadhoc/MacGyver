@@ -37,7 +37,8 @@ BLACK_GROUND = pygame.image.load("ressource/back_ground.png").convert()
 BACKGROUND = pygame.image.load("ressource/background.jpg").convert()
 
 #kind of sprite
-WALL = pygame.image.load("ressource/floor.JPG")
+WALL = pygame.image.load("ressource/floor.jpg")
+WALL = pygame.transform.scale(WALL, (30, 30))
 ARRIVAL = pygame.image.load("ressource/Gardien.png").convert_alpha()
 
 #kind of tools

@@ -30,7 +30,7 @@ class Labyrinthe:
             for sprite in line:
                 X = num_sprite * SPRITE_SIZE
                 Y = num_line * SPRITE_SIZE
-                if sprite == "0":
+                if sprite == "m":
                     screen.blit(WALL, (X, Y)) #we load a wall picture over the window
                 elif sprite == "a":                      #we add 30 for the offset of the black outline
                     screen.blit(ARRIVAL, (X, Y)) #we load a arrival picture over the window
