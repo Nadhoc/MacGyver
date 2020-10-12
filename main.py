@@ -136,7 +136,7 @@ def main():
             if labyrinthe.grid[mac_gyver.sprite_x][mac_gyver.sprite_y] == "a":
 
                 #The player wins if he collects the tree items
-                if len(TOOLS) < 3:
+                if  mac_gyver.inventory < 3:
 
                     #+++++DISPLAY GAME OVER++++#
                     screen.blit(GAMEOVER, (150+30, 150+30))
@@ -146,7 +146,7 @@ def main():
                     print("You loose")
                     GAME_LOOP = False
                     #+++++++++++++++++++++++++++++#
-                if len(TOOLS) == 3:
+                if mac_gyver.inventory == 3:
                     #+++++DISPLAY YOU WIN+++++++++#
                     screen.blit(WIN, (100+30, 150+30))
                     pygame.display.flip()
