@@ -37,15 +37,17 @@ BLACK_GROUND = pygame.image.load("ressource/back_ground.png").convert()
 BACKGROUND = pygame.image.load("ressource/background.jpg").convert()
 
 #kind of sprite
-WALL = pygame.image.load("ressource/floor.JPG")
+WALL = pygame.image.load("ressource/floor.jpg")
+WALL = pygame.transform.scale(WALL, (30, 30))
 ARRIVAL = pygame.image.load("ressource/Gardien.png").convert_alpha()
 
 #kind of tools
 tube = pygame.image.load("ressource/tube_plastique.png").convert_alpha()
 TUBE = pygame.transform.scale(tube, (30, 30)) 
-ETHER = pygame.image.load("ressource/ether.png").convert_alpha()
-SERINGUE = pygame.image.load("ressource/seringue.png").convert_alpha()
-
+ether = pygame.image.load("ressource/ether.png").convert_alpha()
+ETHER = pygame.transform.scale(ether, (30, 30))
+seringue = pygame.image.load("ressource/seringue.png").convert_alpha()
+SERINGUE = pygame.transform.scale(seringue, (30, 30))
 #Display MacGyver
 MACGYVER_IMAGE = pygame.image.load(PATH + "MacGyver.png").convert_alpha()
 

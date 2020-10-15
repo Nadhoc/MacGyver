@@ -16,6 +16,7 @@ class Human:
         self.sprite_y = 0
         self.labyrinthe = labyrinthe
         self.inventory = 0
+        self.objets_noms = ["seringue", "ether", "tube"]
         
     def move(self, direction):
         """
@@ -26,11 +27,14 @@ class Human:
         #++In order to Move to the right
         print(self.x, self.y)
         print(self.sprite_x, self.sprite_y)
-        print(self.sprite_x, self.sprite_y+1)
-        print(self.labyrinthe.grid[self.sprite_y + 1][self.sprite_x])
+
+        if self.labyrinthe.grid[self.sprite_y][self.sprite_x] in self.objets_noms:
+            print(f"Ramasser le {self.labyrinthe.grid[self.sprite_y][self.sprite_x] }")
+            self.inventory += 1
+            self.labyrinthe.grid[self.sprite_y][self.sprite_x] = '0'
         if direction == "right":
             if self.sprite_x < NB_SPRITE -1: #++In order to avoid go out of the screen++#
-                if self.labyrinthe.grid[self.sprite_y][self.sprite_x+1] == "0": #++Don't go to a wall++#
+                if self.labyrinthe.grid[self.sprite_y][self.sprite_x+1] != "m": #++Don't go to a wall++#
                     #++to move of a sprite
                     self.sprite_x += 1
                     #++the Position in pixel:
@@ -38,7 +42,7 @@ class Human:
         #++In order to Move to the Left
         if direction == "left":
             if self.sprite_x > 0: #++Inorder to avoid go out of the screen
-                if self.labyrinthe.grid[self.sprite_y][self.sprite_x-1] == "0": #++Don't go to a wall++#
+                if self.labyrinthe.grid[self.sprite_y][self.sprite_x-1] != "m": #++Don't go to a wall++#
                     #++ to move of one sprite
                     self.sprite_x -= 1
                     #++The Position in pixel:
@@ -48,7 +52,7 @@ class Human:
 
             if self.sprite_y < NB_SPRITE-1: #++In order to avoid go out of the screen++##
                 print("bas0")
-                if self.labyrinthe.grid[self.sprite_y+1][self.sprite_x] == "0": #Don't go to a wall++#
+                if self.labyrinthe.grid[self.sprite_y+1][self.sprite_x] != "m": #Don't go to a wall++#
                     print("bas")
                     #++ tomove on one sprite
                     self.sprite_y += 1
@@ -58,7 +62,7 @@ class Human:
         #++ In order to Move Up
         if direction == "up":
             if self.sprite_y > 0: #++In order to avoid go out of the screen++##
-                if self.labyrinthe.grid[self.sprite_y-1][self.sprite_x] == "0": #Don't go to a wall++##
+                if self.labyrinthe.grid[self.sprite_y-1][self.sprite_x] != "m": #Don't go to a wall++##
                     #++ to move on one sprite++##
                     self.sprite_y -= 1
                     #++ The Position in pixel:
